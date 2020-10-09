@@ -30,6 +30,7 @@ func _player_connected(id):
 		rpc_config("position",2)
 	else:
 		rpc_config("position",3)
+	playerid=id
 
 func _connected_ok():
 	print("connected")
@@ -38,4 +39,7 @@ func _connected_fail():
 	print("fail")
 
 func _process(delta):
-	rpc("position",get_parent().posme)
+	if is_network_master():
+		rpc_id(playerid,"position",get_parent().posme)
+	else:
+		rpc_id(1,"position",get_parent().posme)
