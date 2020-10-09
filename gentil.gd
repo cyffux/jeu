@@ -13,6 +13,7 @@ func _ready():
 
 
 func _process(delta):
+	get_parent().get_parent().pos=position
 	var velocity=Vector2()
 	if Input.is_action_pressed("ui_left"):
 		velocity.x-=1
