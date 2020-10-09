@@ -1,9 +1,12 @@
 extends Node
 
 var serv = 1
-var position = Vector2()
 
 # Called when the node enters the scene tree for the first time.
+
+func position(pos):
+	get_parent().pos=pos
+
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
