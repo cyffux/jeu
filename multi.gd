@@ -6,6 +6,7 @@ var playerid=0
 # Called when the node enters the scene tree for the first time.
 
 func position(pos):
+	print(pos)
 	get_parent().pos=pos
 
 func _ready():
@@ -24,13 +25,12 @@ func _ready():
 		get_tree().network_peer = peer
 	set_network_master(1)
 
-func connect_to_server(id):
-	print(str(id)+" is connected")
-	print(id)
-
 func _player_connected(id):
 	print(str(id)+" is connected")
-	var playerid=id
+	if is_network_master():
+		rpc_config("position",2)
+	else:
+		rpc_config("position",3)
 
 func _connected_ok():
 	print("connected")
@@ -39,8 +39,4 @@ func _connected_fail():
 	print("fail")
 
 func _process(delta):
-	if is_network_master():
-		rset("position",3)
-	else:
-		rset("position",2)
 	rpc("position", Vector2(66,66), get_tree().get_network_unique_id())
