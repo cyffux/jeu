@@ -24,3 +24,6 @@ func _player_connected():
 
 func _connected_ok():
 	print("connected")
+
+func _connected_fail():
+	print("fail")
