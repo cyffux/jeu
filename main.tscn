@@ -1,5 +1,8 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gentil.tscn" type="PackedScene" id=1]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 179.192, 329.818 )
