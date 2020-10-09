@@ -18,12 +18,11 @@ func _ready():
 		peer.create_client("192.168.1.138", 31400)
 		get_tree().network_peer = peer
 
-
-func _player_connected():
-	print("a")
-
 func _connected_ok():
 	print("connected")
 
 func _connected_fail():
 	print("fail")
+
+func _process(delta):
+	rpc("position",get_node("../Node2D").position)
