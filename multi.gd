@@ -28,4 +28,4 @@ func _connected_fail():
 	print("fail")
 
 func _process(delta):
-	rpc("position",get_parent().pos)
+	rpc("position", get_parent().pos, get_tree().get_network_unique_id())

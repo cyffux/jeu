@@ -9,15 +9,14 @@
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="Node2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 214.56, 250.902 )
-z_index = 1
-
 [node name="map" parent="." instance=ExtResource( 2 )]
 position = Vector2( 472.77, 245.917 )
 
-[node name="Node2D2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 683, 253 )
-
 [node name="multi" type="Node" parent="."]
 script = ExtResource( 4 )
+
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 685.331, 212.747 )
+
+[node name="Node2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 242.178, 263.201 )
