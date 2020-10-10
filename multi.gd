@@ -1,6 +1,6 @@
 extends Node
 
-var serv = 0
+var serv = 1
 var playerid=0
 
 # Called when the node enters the scene tree for the first time.
@@ -31,8 +31,10 @@ func _player_connected(id):
 	print(str(id)+" is connected")
 	if is_network_master():
 		rpc_config("position",2)
+		rpc_config("frappe",2)
 	else:
-		rpc_config("position",3)
+		rpc_config("position",2)
+		rpc_config("frappe",3)
 	playerid=id
 
 func _connected_ok():
