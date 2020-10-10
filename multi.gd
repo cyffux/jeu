@@ -1,12 +1,15 @@
 extends Node
 
-var serv = 1
+var serv = 0
 var playerid=0
 
 # Called when the node enters the scene tree for the first time.
 
 func position(pos):
 	get_parent().posenemis=pos
+
+func frappe(frappe):
+	get_parent().frappeenemis=frappe
 
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
@@ -41,5 +44,7 @@ func _connected_fail():
 func _process(delta):
 	if is_network_master():
 		rpc_id(playerid,"position",get_parent().posme)
+		rpc_id(playerid,"frappe",get_parent().frappeme)
 	else:
+		rpc_id(1,"frappe",get_parent().frappeme)
 		rpc_id(1,"position",get_parent().posme)
