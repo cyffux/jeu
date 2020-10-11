@@ -1,6 +1,6 @@
 extends Node
 
-var serv = 0
+var serv = 1
 var playerid=0
 
 # Called when the node enters the scene tree for the first time.
@@ -57,4 +57,4 @@ func _process(delta):
 	else:
 		rpc_id(1,"punch",get_parent().punchme)
 		rpc_id(1,"frappe",get_parent().frappeme)
-		rpc_id(1,"position",get_parent().posme,get_parent().rotapunchme)
+		rpc_id(1,"punch",get_parent().posme,get_parent().rotapunchme)
