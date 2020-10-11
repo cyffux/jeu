@@ -12,6 +12,10 @@ var frappetime = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite/AnimationPlayer.play("idle")
+	if is_network_master():
+		pass
+	else:
+		get_parent().get_parent().posenemis=position
 
 
 func _process(delta):
@@ -54,8 +58,7 @@ func _process(delta):
 		if move.y == 0 and jump == 0:
 			jump_number=3
 	else:
-		if get_parent().get_parent().posenemis!=Vector2(0,0):
-			move_and_slide((get_parent().get_parent().posenemis-position)*speed)
+		move_and_slide((get_parent().get_parent().posenemis-position))
 		if get_parent().get_parent().frappeenemis == true:
 			$KinematicBody2D.visible=true
 			$KinematicBody2D/CollisionShape2D.disabled=false
