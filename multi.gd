@@ -55,6 +55,6 @@ func _process(delta):
 		rpc_id(playerid,"frappe",get_parent().frappeme)
 		rpc_id(playerid,"punch",get_parent().punchme, get_parent().rotapunchme)
 	else:
-		rpc_id(1,"position",get_parent().poschme)
+		rpc_id(1,"position",get_parent().posme)
 		rpc_id(1,"frappe",get_parent().frappeme)
 		rpc_id(1,"punch",get_parent().punchme,get_parent().rotapunchme)

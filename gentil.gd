@@ -83,6 +83,7 @@ func _process(delta):
 					$KinematicBody2D2.position.x=0
 					$KinematicBody2D2.visible=false
 					$KinematicBody2D2/CollisionShape2D.disabled=true
+					get_parent().get_parent().punchme = false
 			else:
 				if punchtime > 50:
 					$KinematicBody2D3.position.x-=3
@@ -97,6 +98,7 @@ func _process(delta):
 					$KinematicBody2D3.position.x=0
 					$KinematicBody2D3.visible=false
 					$KinematicBody2D3/CollisionShape2D.disabled=true
+					get_parent().get_parent().punchme = false
 			punchtime-=1
 		velocity.y+=1
 		var move = move_and_slide(velocity*speed)
