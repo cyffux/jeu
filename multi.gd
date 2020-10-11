@@ -33,7 +33,7 @@ func _player_connected(id):
 		rpc_config("position",2)
 		rpc_config("frappe",2)
 	else:
-		rpc_config("position",2)
+		rpc_config("position",3)
 		rpc_config("frappe",3)
 	playerid=id
 

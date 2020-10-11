@@ -52,7 +52,7 @@ func _process(delta):
 		if move.y == 0 and jump == 0:
 			jump_number=3
 	else:
-		position = get_parent().get_parent().posenemis
+		move_and_slide((get_parent().get_parent().posenemis-position)*speed)
 		if get_parent().get_parent().frappeenemis == true:
 			$KinematicBody2D.visible=true
 			$KinematicBody2D/CollisionShape2D.disabled=false
