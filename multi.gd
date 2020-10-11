@@ -11,7 +11,7 @@ func position(pos):
 func frappe(frappe):
 	get_parent().frappeenemis=frappe
 
-func punch(rota, punch):
+func punch(punch, rota):
 	get_parent().punchennemis=punch
 	get_parent().rotapunchennemi=rota
 
@@ -55,6 +55,6 @@ func _process(delta):
 		rpc_id(playerid,"frappe",get_parent().frappeme)
 		rpc_id(playerid,"punch",get_parent().punchme, get_parent().rotapunchme)
 	else:
-		rpc_id(1,"punch",get_parent().punchme)
+		rpc_id(1,"position",get_parent().punchme)
 		rpc_id(1,"frappe",get_parent().frappeme)
-		rpc_id(1,"punch",get_parent().posme,get_parent().rotapunchme)
+		rpc_id(1,"punch",get_parent().punchme,get_parent().rotapunchme)
