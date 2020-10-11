@@ -11,7 +11,7 @@ func position(pos):
 func frappe(frappe):
 	get_parent().frappeenemis=frappe
 
-func punch(punch, rota):
+func punch(rota, punch):
 	get_parent().punchennemis=punch
 	get_parent().rotapunchennemi=rota
 
