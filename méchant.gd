@@ -15,7 +15,7 @@ var rotapunch = ""
 func _ready():
 	$Sprite/AnimationPlayer.play("idle")
 	
-func _process(delta):
+func _physics_process(delta):
 	if not is_network_master():
 		get_parent().get_parent().frappeme=frappe
 		get_parent().get_parent().posme=position
@@ -56,7 +56,7 @@ func _process(delta):
 			if punch == false :
 				get_parent().get_parent().punchme = true
 				punch = true
-				punchtime = 30
+				punchtime = 60
 				if rota == "RIGHT":
 					get_parent().get_parent().rotapunchme = "RIGHT"
 					rotapunch = "RIGHT"

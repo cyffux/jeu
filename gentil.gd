@@ -16,7 +16,7 @@ var rotapunch = ""
 func _ready():
 	$Sprite/AnimationPlayer.play("idle")
 
-func _process(delta):
+func _physics_process(delta):
 	if is_network_master():
 		get_parent().get_parent().frappeme=frappe
 		get_parent().get_parent().posme=position
@@ -56,7 +56,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("punch"):
 			if punch == false :
 				punch = true
-				punchtime = 30
+				punchtime = 60
 				get_parent().get_parent().punchme = true
 				if rota == "RIGHT":
 					rotapunch = "RIGHT"
@@ -124,7 +124,6 @@ func _process(delta):
 					$KinematicBody2D3.visible=true
 					$KinematicBody2D3/CollisionShape2D.disabled=false
 		if punch == true:
-			print("a")
 			if get_parent().get_parent().rotapunchennemi == "RIGHT":
 				if punchtime > 50:
 					$KinematicBody2D2.position.x+=3
