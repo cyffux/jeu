@@ -149,4 +149,5 @@ func _process(delta):
 					$KinematicBody2D3.position.x=0
 					$KinematicBody2D3.visible=false
 					$KinematicBody2D3/CollisionShape2D.disabled=true
+			punchtime-=1
 
