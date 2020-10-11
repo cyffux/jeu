@@ -10,11 +10,7 @@ var frappetime = 0
 
 func _ready():
 	$Sprite/AnimationPlayer.play("idle")
-	if not is_network_master():
-		pass
-	else:
-		get_parent().get_parent().posenemis=position
-
+	
 func _process(delta):
 	if not is_network_master():
 		get_parent().get_parent().frappeme=frappe
@@ -55,7 +51,7 @@ func _process(delta):
 		if move.y == 0 and jump == 0:
 			jump_number=3
 	else:
-		move_and_slide((get_parent().get_parent().posenemis-position)*100)
+		position=get_parent().get_parent().posenemis-position
 		if get_parent().get_parent().frappeenemis == true:
 			$KinematicBody2D.visible=true
 			$KinematicBody2D/CollisionShape2D.disabled=false
