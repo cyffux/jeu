@@ -76,12 +76,10 @@ func _physics_process(delta):
 					$KinematicBody2D3/CollisionShape2D.disabled=false
 		if punch == true:
 			if rotapunch == "RIGHT":
-				if punchtime > 25:
+				if punchtime > 10:
 					$KinematicBody2D2.position.x+=1
-				elif punchtime > 15:
-					$KinematicBody2D2.position.x+=2
 				elif punchtime > 0:
-					$KinematicBody2D2.position.x+=10
+					$KinematicBody2D2.position.x+=5
 				else:
 					punch = false
 					$KinematicBody2D2.position.x=0
@@ -89,12 +87,10 @@ func _physics_process(delta):
 					$KinematicBody2D2/CollisionShape2D.disabled=true
 					get_parent().get_parent().punchme = false
 			else:
-				if punchtime > 25:
+				if punchtime > 10:
 					$KinematicBody2D3.position.x-=1
-				elif punchtime > 15:
-					$KinematicBody2D3.position.x-=2
 				elif punchtime > 0:
-					$KinematicBody2D3.position.x-=10
+					$KinematicBody2D3.position.x-=5
 				else:
 					punch = false
 					$KinematicBody2D3.position.x=0
@@ -114,7 +110,7 @@ func _physics_process(delta):
 			elif uppunchtime > 7:
 				$KinematicBody2D4.position.y-=2
 			elif uppunchtime > 0:
-				$KinematicBody2D4.position.y-=10
+				$KinematicBody2D4.position.y-=5
 			else:
 				uppunch = false
 				$KinematicBody2D4.position.y=0
@@ -146,28 +142,25 @@ func _physics_process(delta):
 					$KinematicBody2D3/CollisionShape2D.disabled=false
 		if punch == true:
 			if get_parent().get_parent().rotapunchennemi == "RIGHT":
-				if punchtime > 25:
+				if punchtime > 10:
 					$KinematicBody2D2.position.x+=1
-				elif punchtime > 15:
-					$KinematicBody2D2.position.x+=2
 				elif punchtime > 0:
-					$KinematicBody2D2.position.x+=10
+					$KinematicBody2D2.position.x+=5
 				else:
 					punch = false
 					$KinematicBody2D2.position.x=0
 					$KinematicBody2D2.visible=false
 					$KinematicBody2D2/CollisionShape2D.disabled=true
 			else:
-				if punchtime > 25:
+				if punchtime > 10:
 					$KinematicBody2D3.position.x-=1
-				elif punchtime > 15:
-					$KinematicBody2D3.position.x-=2
 				elif punchtime > 0:
-					$KinematicBody2D3.position.x-=10
+					$KinematicBody2D3.position.x-=5
 				else:
 					punch = false
 					$KinematicBody2D3.position.x=0
 					$KinematicBody2D3.visible=false
 					$KinematicBody2D3/CollisionShape2D.disabled=true
 			punchtime-=1
+
 
