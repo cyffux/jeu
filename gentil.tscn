@@ -33,12 +33,15 @@ extents = Vector2( 256.25, 207.109 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="KinematicBody2D" type="RigidBody2D" parent="."]
 position = Vector2( -0.775848, 0.954254 )
-scale = Vector2( 0.075, 0.075 )
+mode = 2
+gravity_scale = 3.0
+can_sleep = false
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+scale = Vector2( 0.075, 0.075 )
 texture = ExtResource( 1 )
 hframes = 2
 
@@ -46,11 +49,13 @@ hframes = 2
 anims/idle = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+scale = Vector2( 0.075, 0.075 )
 shape = SubResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="KinematicBody2D"]
 visible = false
 position = Vector2( 3.56934, -0.229446 )
+scale = Vector2( 0.075, 0.075 )
 
 [node name="Sprite2" type="Sprite" parent="KinematicBody2D/KinematicBody2D"]
 position = Vector2( 584.796, -13.6816 )
@@ -63,6 +68,7 @@ disabled = true
 
 [node name="KinematicBody2D2" type="KinematicBody2D" parent="KinematicBody2D"]
 visible = false
+scale = Vector2( 0.075, 0.075 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D/KinematicBody2D2"]
 position = Vector2( 611.75, -2.96967 )
@@ -73,9 +79,25 @@ position = Vector2( 516.568, -19.9487 )
 shape = SubResource( 4 )
 disabled = true
 
+[node name="KinematicBody2D4" type="KinematicBody2D" parent="KinematicBody2D"]
+visible = false
+scale = Vector2( 0.075, 0.075 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D/KinematicBody2D4"]
+position = Vector2( 18.4512, -659.836 )
+rotation = -1.5708
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/KinematicBody2D4"]
+position = Vector2( 4.49463, -556.743 )
+rotation = -1.5708
+shape = SubResource( 4 )
+disabled = true
+
 [node name="KinematicBody2D3" type="KinematicBody2D" parent="KinematicBody2D"]
 visible = false
 rotation = -3.14159
+scale = Vector2( 0.075, 0.075 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D/KinematicBody2D3"]
 position = Vector2( 609.253, 36.9852 )
