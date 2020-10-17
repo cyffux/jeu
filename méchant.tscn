@@ -35,6 +35,7 @@ extents = Vector2( 256.978, 208.244 )
 
 [node name="KinematicBody2D" type="RigidBody2D" parent="."]
 position = Vector2( -0.775848, 0.954254 )
+mode = 2
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
