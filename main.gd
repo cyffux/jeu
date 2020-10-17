@@ -9,3 +9,5 @@ var punchme = false
 var punchennemis = false
 var rotapunchme = ""
 var rotapunchennemi = ""
+var uppunchme = false
+var uppunchenemis = false

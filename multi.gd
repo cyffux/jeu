@@ -3,8 +3,6 @@ extends Node
 var serv = 1
 var playerid=0
 
-# Called when the node enters the scene tree for the first time.
-
 func position(pos):
 	get_parent().posenemis=pos
 
@@ -14,6 +12,9 @@ func frappe(frappe):
 func punch(punch, rota):
 	get_parent().punchennemis=punch
 	get_parent().rotapunchennemi=rota
+
+func uppunch(uppunch):
+	get_parent().uppunchenemis=uppunch
 
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
@@ -37,10 +38,12 @@ func _player_connected(id):
 		rpc_config("position",2)
 		rpc_config("frappe",2)
 		rpc_config("punch",2)
+		rpc_config("uppunch",2)
 	else:
 		rpc_config("position",3)
 		rpc_config("frappe",3)
 		rpc_config("punch",3)
+		rpc_config("uppunch",2)
 	playerid=id
 
 func _connected_ok():
@@ -54,7 +57,9 @@ func _process(delta):
 		rpc_id(playerid,"position",get_parent().posme)
 		rpc_id(playerid,"frappe",get_parent().frappeme)
 		rpc_id(playerid,"punch",get_parent().punchme, get_parent().rotapunchme)
+		rpc_id(playerid,"uppunch",get_parent().punchme)
 	else:
 		rpc_id(1,"position",get_parent().posme)
 		rpc_id(1,"frappe",get_parent().frappeme)
 		rpc_id(1,"punch",get_parent().punchme,get_parent().rotapunchme)
+		rpc_id(1,"uppunch",get_parent().punchme)

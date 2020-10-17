@@ -104,6 +104,7 @@ func _physics_process(delta):
 				uppunchtime = 15
 				$KinematicBody2D4.visible=true
 				$KinematicBody2D4/CollisionShape2D.disabled=false
+				get_parent().get_parent().uppunchme = true
 		if uppunch == true:
 			if uppunchtime > 12:
 				$KinematicBody2D4.position.y-=1
@@ -116,6 +117,7 @@ func _physics_process(delta):
 				$KinematicBody2D4.position.y=0
 				$KinematicBody2D4.visible=false
 				$KinematicBody2D4/CollisionShape2D.disabled=true
+				get_parent().get_parent().uppunchme = false
 			uppunchtime-=1
 		velocity.y+=1
 		position+=velocity*3
@@ -162,4 +164,26 @@ func _physics_process(delta):
 					$KinematicBody2D3.visible=false
 					$KinematicBody2D3/CollisionShape2D.disabled=true
 			punchtime-=1
+		if get_parent().get_parent().uppunchenemis == true:
+			if uppunch == false :
+				uppunch = true
+				uppunchtime = 15
+				$KinematicBody2D4.visible=true
+				$KinematicBody2D4/CollisionShape2D.disabled=false
+			if uppunch == true:
+				if uppunchtime > 12:
+					$KinematicBody2D4.position.y-=1
+				elif uppunchtime > 7:
+					$KinematicBody2D4.position.y-=2
+				elif uppunchtime > 0:
+					$KinematicBody2D4.position.y-=5
+				else:
+					uppunch = false
+					$KinematicBody2D4.position.y=0
+					$KinematicBody2D4.visible=false
+					$KinematicBody2D4/CollisionShape2D.disabled=true
+		else:
+			$KinematicBody2D4.position.y=0
+			$KinematicBody2D4.visible=false
+			$KinematicBody2D4/CollisionShape2D.disabled=true
 
